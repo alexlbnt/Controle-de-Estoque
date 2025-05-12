@@ -1,38 +1,62 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './_sidebar.scss';
+import Logo from '../assets/Logo-Branco.svg';
 
-
+// Ícones Lucide
+import {
+  LayoutDashboard,
+  Package,
+  ClipboardList,
+  Settings
+} from 'lucide-react';
 
 function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const location = useLocation();
 
-  const toggleSidebar = () => {
-    setIsCollapsed(!isCollapsed);
-  };
+  const toggleSidebar = () => setIsCollapsed(!isCollapsed);
 
   return (
     <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-header">
-        <h2>{!isCollapsed && 'Menu'}</h2>
-        <button className="toggle-btn" onClick={toggleSidebar}>☰</button>
+        <img
+          src={Logo}
+          alt="Logo"
+          className="sidebar-logo"
+          onClick={toggleSidebar}
+        />
+        {!isCollapsed && <h2>Menu</h2>}
       </div>
+
       <nav>
         <ul>
           <li className={location.pathname === '/' ? 'active' : ''}>
-            <Link to="/"><span>📦</span>{!isCollapsed && 'Dashboard'}</Link>
+            <Link to="/">
+              <LayoutDashboard size={20} />
+              {!isCollapsed && <span>Dashboard</span>}
+            </Link>
           </li>
           <li className={location.pathname === '/produtos' ? 'active' : ''}>
-            <Link to="/produtos"><span>🗂</span>{!isCollapsed && 'Produtos'}</Link>
+            <Link to="/produtos">
+              <Package size={20} />
+              {!isCollapsed && <span>Produtos</span>}
+            </Link>
           </li>
           <li className={location.pathname === '/cadastros' ? 'active' : ''}>
-            <Link to="/cadastros"><span>📝</span>{!isCollapsed && 'Cadastros'}</Link>
+            <Link to="/cadastros">
+              <ClipboardList size={20} />
+              {!isCollapsed && <span>Cadastros</span>}
+            </Link>
           </li>
         </ul>
       </nav>
+
       <div className="sidebar-config">
-        <Link to="/config"><span>⚙️</span>{!isCollapsed && 'Configurações'}</Link>
+        <Link to="/config">
+          <Settings size={20} />
+          {!isCollapsed && <span>Configurações</span>}
+        </Link>
       </div>
     </aside>
   );

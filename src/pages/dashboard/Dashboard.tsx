@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './_dashboard.scss';
 import Sidebar from '../../components/Sidebar';
-import Logo from '../../assets/Logo.svg';
 
 
 interface OrcamentoFornecedor {
@@ -51,7 +50,7 @@ function Dashboard() {
   const totalProdutos = 638;
   const entradaEstoque = 200;
   const saidaEstoque = 122;
-  const valorTotal = 56;
+  const valorTotal = 25600;
 
   return (
     <div className="dashboard-container">
@@ -60,7 +59,6 @@ function Dashboard() {
       <div className="dashboard-main">
         <header className="dashboard-header">
           <div className="logo">
-            <img src={Logo} alt="Estoque Safe" className="logo-img" />
             <Link to="/">Estoque Safe</Link>
           </div>
           <div className="user-info">
