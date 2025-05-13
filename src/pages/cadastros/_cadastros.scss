@@ -1,0 +1,103 @@
+.cadastros-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.cadastros-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.cadastros-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  .logo a {
+    color: #1d2340;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .user-info a {
+    color: #1d2340;
+    text-decoration: none;
+  }
+}
+
+.cadastros-content {
+  padding: 30px;
+
+  h2 {
+    font-size: 1.6rem;
+    color: #1d2340;
+    margin-bottom: 30px;
+  }
+
+  .cadastro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-weight: bold;
+          color: #1d2340;
+          margin-bottom: 8px;
+        }
+
+        input {
+          padding: 10px;
+          border-radius: 6px;
+          border: none;
+          background-color: #b8c1ec;
+        }
+      }
+
+      .full-width {
+        grid-column: span 2;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 20px;
+      justify-content: flex-end;
+
+      .btn {
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        background-color: #1d2340;
+        color: #f2c4d6;
+        transition: 0.3s;
+
+        &:hover {
+          opacity: 0.9;
+        }
+
+        &.remover {
+          background-color: #1d2340;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
